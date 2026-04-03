@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Quiet Works</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Quiet<span>.</span></a>
+      <div class="nav-links">
+        <a href="/how-it-works.html" class="active">How it works</a>
+        <a href="/prototypes.html">Prototypes</a>
+        <a href="/about.html">About</a>
+        <a href="/#feedback" class="nav-cta">Share your thoughts</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header fade-up">
+    <p class="section-label">Quiet Protect</p>
+    <h1 class="page-title">How the scoring engine works</h1>
+    <p class="page-subtitle">A plain English explanation of how Quiet Protect decides what to block, what to review, and what to deliver.</p>
+  </header>
+
+  <hr class="divider" />
+
+  <main>
+
+    <!-- WHY AI -->
+    <div class="how-section fade-up d1">
+      <h2>Why AI, not a rules engine</h2>
+      <p class="lead">The obvious approach to blocking scam emails is a list of rules: flag anything claiming to be HMRC, block links to domains that look suspicious, catch emails with urgent language. Rules engines are fast, cheap, and predictable. For Quiet Protect, they are also insufficient.</p>
+      <p>Email fraud is adversarial. The patterns that make a scam effective are specifically designed to appear legitimate... the calm tone of a routine letter, the plausible domain name that falls just short of the official one, the absence of deadline pressure that makes a bank detail request seem like routine administration. A rules engine catches the obvious cases. It cannot reason about context.</p>
+      <p>What matters in Quiet Protect is not whether a signal is present in isolation, but what it means in context. A payment request from a known tradesperson with four prior contacts is routine. The same payment request from an unknown sender with no history is suspicious. The same email, two completely different risk profiles.</p>
+      <p>This contextual reasoning is exactly what large language models do well. The scoring engine powering Quiet Protect approaches each email as a reasoning task rather than a pattern-matching task. It weighs signals against sender history, header validation, the stated purpose of the email, and the combination of signals present. This produces better accuracy on the cases that matter most.</p>
+    </div>
+
+    <!-- THE FIVE DIMENSIONS -->
+    <div class="how-section fade-up d2">
+      <h2>Five threat dimensions</h2>
+      <p>Every incoming email is assessed across five dimensions.</p>
+
+      <table class="dimension-table">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th>What it looks for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dim-name">Impersonation</td>
+            <td class="dim-desc">False sender identity, domain lookalikes, authority spoofing (HMRC, NHS, banks), mismatched headers</td>
+          </tr>
+          <tr>
+            <td class="dim-name">Urgency and pressure</td>
+            <td class="dim-desc">Time pressure and fear tactics designed to override rational thinking, deadlines, threats of consequences, account suspension language</td>
+          </tr>
+          <tr>
+            <td class="dim-name">Action requested</td>
+            <td class="dim-desc">What the email is asking the recipient to do. Click a login link, provide bank details, pay an invoice, share personal information</td>
+          </tr>
+          <tr>
+            <td class="dim-name">Structural signals</td>
+            <td class="dim-desc">Construction-level anomalies, mismatched links, unusual send times, generic salutations, reply-to mismatches</td>
+          </tr>
+          <tr>
+            <td class="dim-name">Vulnerable person context</td>
+            <td class="dim-desc">Patterns specifically effective against elderly adults. Secrecy instructions, unsolicited prize or inheritance notifications, tech support scams, unexpected personal contact</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- THE REVIEW ZONE -->
+    <div class="how-section fade-up d3">
+      <h2>The Review zone</h2>
+      <p>The scoring engine routes every email to one of three outcomes: Deliver, Review, or Block. Emails in the middle... plausible enough not to block, suspicious enough not to deliver, are held for the family manager rather than forced to a binary decision by an AI.</p>
+
+      <div class="callout protect-callout">
+        An AI scoring engine will always produce some errors on genuinely ambiguous cases. In a safety product, those errors are asymmetric: a false positive (blocking a legitimate email) creates friction. A false negative (delivering a scam) can cause serious financial harm. The Review zone is honest about uncertainty rather than hiding it.
+      </div>
+
+      <p>The family manager reviewing a flagged email is in a far better position than any algorithm to know whether their parent was expecting a document from a particular sender, or whether an invoice for work they've never heard of sounds right. The Review zone exists to give that judgement its proper place.</p>
+      <p>The engine also uses its own confidence level as a tiebreaker in ambiguous boundary cases. A score of 20 with high confidence routes to Deliver. The same score with medium confidence routes to Review. How certain the engine is, not just what it scores, shapes the outcome.</p>
+    </div>
+
+    <!-- WHAT THE FAMILY MANAGER SEES -->
+    <div class="how-section fade-up d4">
+      <h2>What the family manager sees... and doesn't</h2>
+      <p>When an email is flagged for review or blocked, the family manager receives a plain English summary: who sent it, what it claimed to be, why it was flagged, and what threat signals fired. One tap to release it to the inbox. One tap to confirm the block.</p>
+
+      <div class="callout">
+        The body of the email is never shared with the family manager. Not the text, not the links, not the attachments. The protected person's inbox content stays completely private... even from the person managing their protection.
+      </div>
+
+      <p>This is not a technical limitation. It is a deliberate design decision. The purpose of Quiet Protect is to protect against email threats, not to give family members a window into someone's private correspondence. Those are very different things, and conflating them would undermine the dignity and independence of the person being protected.</p>
+    </div>
+
+    <!-- KNOWN LIMITATIONS -->
+    <div class="how-section fade-up d5">
+      <h2>What we can't do yet. And why we say so</h2>
+      <p>Quiet Protect is a prototype. There are things it cannot currently do, and we think it's important to say so clearly rather than paper over them.</p>
+
+      <div class="limitation">
+        <strong>Attachment content scanning</strong>
+        <p>The engine knows an attachment is present and who sent it. It cannot inspect what is inside it. Attachments from unknown senders are always routed to Review, which is the honest response to an incomplete assessment. Full attachment scanning is a later capability.</p>
+      </div>
+      <div class="limitation">
+        <strong>Image-only emails</strong>
+        <p>Some scam emails are constructed entirely as images. The text you see is part of a graphic, not readable by the engine. Structural signals still fire, but complete protection cannot be guaranteed for this pattern. It's logged as a known gap.</p>
+      </div>
+      <div class="limitation">
+        <strong>Microsoft 365 only at this stage</strong>
+        <p>The email integration uses Microsoft Graph API. Gmail and other providers are on the roadmap but not in the first version.</p>
+      </div>
+
+      <p style="margin-top: 20px;">The family manager override log is a calibration signal, not an automatic correction. If a family manager releases a blocked email, that decision is recorded and reviewed periodically, but it does not automatically adjust the scoring. Family managers may themselves make poor calls, and the system is designed to account for that.</p>
+
+      <div class="btn-group" style="margin-top: 28px;">
+        <a href="/prototypes.html" class="btn btn-primary protect-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          See the prototypes
+        </a>
+        <a href="/#feedback" class="btn btn-secondary">Share your thoughts</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Quiet is early-stage. Your feedback genuinely shapes what comes next.</p>
+    <p style="margin-top: 8px;">© 2026 Chris Falck &nbsp;·&nbsp; <a href="mailto:chris@getquiet.co.uk">chris@getquiet.co.uk</a></p>
+  </footer>
+
+</body>
+</html>

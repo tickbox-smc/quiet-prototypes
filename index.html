@@ -3,322 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiet — Early Access Preview</title>
+  <title>Quiet: Peace of mind for your family</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:        #F7F5F2;
-      --surface:   #FFFFFF;
-      --ink:       #1A1A18;
-      --ink-soft:  #5A5A54;
-      --accent:    #2D6A4F;
-      --accent-lt: #D8EEE5;
-      --protect:   #3A5A8C;
-      --protect-lt:#D6E4F5;
-      --rule:      #E2DDD8;
-      --radius:    12px;
-      --radius-lg: 20px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-
-    /* ── HEADER ── */
-    header {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 56px 24px 0;
-      text-align: center;
-    }
-
-    .wordmark {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(3rem, 10vw, 5.5rem);
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: var(--ink);
-    }
-
-    .wordmark span {
-      color: var(--accent);
-    }
-
-    .tagline {
-      margin-top: 16px;
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: var(--ink-soft);
-      font-weight: 300;
-      font-style: italic;
-      font-family: 'DM Serif Display', serif;
-    }
-
-    .intro-text {
-      margin-top: 24px;
-      font-size: 1rem;
-      color: var(--ink-soft);
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ── DIVIDER ── */
-    .divider {
-      max-width: 720px;
-      margin: 40px auto;
-      padding: 0 24px;
-      border: none;
-      border-top: 1px solid var(--rule);
-    }
-
-    /* ── MAIN ── */
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    /* ── VOICE NOTE ── */
-    .voice-section {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      margin-bottom: 32px;
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 12px;
-    }
-
-    .voice-section p {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-      margin-bottom: 16px;
-    }
-
-    .voice-placeholder {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--bg);
-      border: 1px dashed var(--rule);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      color: var(--ink-soft);
-      font-size: 0.85rem;
-    }
-
-    .voice-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--accent-lt);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1rem;
-    }
-
-    audio {
-      width: 100%;
-      margin-top: 4px;
-      border-radius: 8px;
-      accent-color: var(--accent);
-    }
-
-    /* ── PRODUCT CARDS ── */
-    .products {
-      display: grid;
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .product-card {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .product-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent);
-    }
-
-    .product-card.protect::before {
-      background: var(--protect);
-    }
-
-    .product-card h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.6rem;
-      font-weight: 400;
-      margin-bottom: 6px;
-      color: var(--ink);
-    }
-
-    .product-card .product-sub {
-      font-size: 0.85rem;
-      color: var(--ink-soft);
-      margin-bottom: 16px;
-    }
-
-    .product-card p {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-      margin-bottom: 20px;
-    }
-
-    .pill-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-      background: var(--accent-lt);
-      color: var(--accent);
-    }
-
-    .protect .pill-tag {
-      background: var(--protect-lt);
-      color: var(--protect);
-    }
-
-    /* ── BUTTONS ── */
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.15s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .btn-primary:hover { background: #255c43; }
-
-    .btn-primary.protect-btn {
-      background: var(--protect);
-    }
-    .btn-primary.protect-btn:hover { background: #2d4d7a; }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--rule);
-    }
-    .btn-secondary:hover { background: var(--bg); }
-
-    /* ── FEEDBACK ── */
-    .feedback-section {
-      background: var(--surface);
-      border: 1px solid var(--rule);
-      border-radius: var(--radius-lg);
-      padding: 28px 32px;
-      margin-bottom: 32px;
-    }
-
-    .feedback-section h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 8px;
-    }
-
-    .feedback-section > p {
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-      margin-bottom: 20px;
-    }
-
-    .tally-embed {
-      border: none;
-      width: 100%;
-      height: 2600px;
-      border-radius: var(--radius);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 32px 24px 48px;
-      font-size: 0.8rem;
-      color: var(--ink-soft);
-      border-top: 1px solid var(--rule);
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    /* ── FADE IN ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    header, .voice-section, .product-card, .feedback-section {
-      animation: fadeUp 0.5s ease both;
-    }
-    .voice-section  { animation-delay: 0.1s; }
-    .product-card:nth-child(1) { animation-delay: 0.15s; }
-    .product-card:nth-child(2) { animation-delay: 0.22s; }
-    .feedback-section { animation-delay: 0.3s; }
-
-    /* ── MOBILE ── */
-    @media (max-width: 480px) {
-      .product-card, .voice-section, .feedback-section { padding: 22px 20px; }
-      .btn { font-size: 0.82rem; padding: 9px 14px; }
-    }
-  </style>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
-  <header>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Quiet<span>.</span></a>
+      <div class="nav-links">
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/prototypes.html">Prototypes</a>
+        <a href="/about.html">About</a>
+        <a href="#feedback" class="nav-cta">Share your thoughts</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header fade-up">
     <div class="wordmark">Quiet<span>.</span></div>
-    <p class="tagline">Your inbox, finally at peace.</p>
+    <p class="tagline">Peace of mind for your family. An inbox that finally works for you.</p>
     <p class="intro-text">
-      I'm building something. These are two early ideas in the same space, have a look and tell me what you actually think.
+      Two early-stage products built around the same idea: your email should work quietly in the background, not run your day. Have a look, then tell me what you actually think.
     </p>
   </header>
 
@@ -327,77 +36,106 @@
   <main>
 
     <!-- VOICE NOTE -->
-    <div class="voice-section">
-      <p class="section-label">A quick intro from Chris</p>
-      <p>Before you dive in, here's a short voice note with a bit of context about what I'm building and why your feedback matters.</p>
+    <div class="voice-section fade-up d1">
+      <p class="section-label">A short intro from Chris</p>
+      <p>Before you look at anything else, worth a listen... a bit of context about what I'm building and why your feedback matters right now.</p>
+      <audio controls src="/assets/audio/intro.m4a"></audio>
+    </div>
 
-      <div class="voice-placeholder">
-        <div class="voice-icon">🎙️</div>
-        <audio controls src="/docs/assets/intro.m4a"></audio>
+    <!-- QUIET PROTECT - leads -->
+    <div class="card protect fade-up d2">
+      <span class="pill-tag">Email protection for vulnerable adults</span>
+      <h2>Quiet Protect</h2>
+      <p class="product-sub">Peace of mind for the people looking out for elderly relatives or anyone vulnerable to email scams.</p>
+
+      <p>Quiet Protect sits between the incoming email stream and your relative's inbox. Every email is assessed for threat signals: impersonation, urgency tactics, suspicious payment requests, fake government bodies etc. and anything suspicious is caught before it arrives. Your relative's inbox stays clean and calm. They never know anything was blocked.</p>
+
+      <p>You, as the family manager, see a plain English summary of what was flagged and why. One tap to review, one tap to confirm. The scam is gone before it ever becomes a phone call.</p>
+
+      <div class="privacy-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Their email content stays completely private. You see that something was blocked and why... never the email itself. Their inbox is theirs.</span>
+      </div>
+
+      <div class="btn-group">
+        <a class="btn btn-primary protect-btn" href="/ui/quiet_protect_prototype.html" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Family manager dashboard
+        </a>
+        <a class="btn btn-secondary" href="/ui/mobile_mocks/quiet_protect_mobile_inbox.html" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
+          Protected person's inbox
+        </a>
+        <a class="btn btn-secondary" href="/ui/mobile_mocks/quiet_protect_mobile_dashboard.html" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
+          Manager dashboard (mobile)
+        </a>
+        <a class="btn btn-secondary" href="/assets/docs/quiet_protect_concept_overview.pdf" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Concept overview
+        </a>
       </div>
     </div>
 
-    <!-- PRODUCT CARDS -->
-    <div class="products">
+    <!-- QUIET CORE -->
+    <div class="card fade-up d3">
+      <span class="pill-tag">Email triage for busy people</span>
+      <h2>Quiet</h2>
+      <p class="product-sub">For professionals and small business owners who are drowning in email and want out.</p>
 
-      <!-- QUIET -->
-      <div class="product-card">
-        <span class="pill-tag">Email Management</span>
-        <h2>Quiet</h2>
-        <p class="product-sub">An AI assistant that keeps your inbox under control — filtering noise, surfacing what matters, and letting you reclaim your time.</p>
-        <p>Quiet works quietly in the background. It learns what you care about, handles the clutter, and gives you back the one thing email has been stealing: focus.</p>
-        <div class="btn-group">
-          <a class="btn btn-primary" href="/ui/quiet_prototype.html" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            Desktop prototype
-          </a>
-          <a class="btn btn-secondary" href="/ui/mobile_mocks/quiet_mobile_mockup.html" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-            Mobile mockup
-          </a>
-          <a class="btn btn-secondary" href="/docs/assets/quiet_concept_overview.pdf" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Concept overview
-          </a>
+      <p>Quiet doesn't sort your inbox. It replaces it. Every email is scored for importance and actionability by an AI assistant that works without being asked. You see three things: what needs your attention, what's been handled, and what's been quietly suppressed. You never open your email client again.</p>
+
+      <p>The difference from everything else in this space: SaneBox, Gmail categories, Copilot in Outlook... they all make the inbox better to deal with. Quiet removes the need to deal with it at all.</p>
+
+      <div class="btn-group">
+        <a class="btn btn-primary" href="/ui/quiet_prototype.html" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Desktop prototype
+        </a>
+        <a class="btn btn-secondary" href="/ui/mobile_mocks/quiet_mobile_mockup.html" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
+          Mobile mockup
+        </a>
+        <a class="btn btn-secondary" href="/assets/docs/quiet_concept_overview.pdf" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Concept overview
+        </a>
+      </div>
+    </div>
+
+    <!-- WHAT WE'RE HEARING -->
+    <div class="hearing-section card fade-up d4">
+      <p class="section-label">What we're hearing</p>
+      <h3>Early reactions from people we trust.</h3>
+      <p>We shared these prototypes with a small group of people across different ages and professions. Here's a flavour of what came back.</p>
+
+      <div class="quotes">
+        <div class="quote-card">
+          <blockquote>"I mentioned it to my mum the same afternoon I saw it."</blockquote>
+          <span class="quote-source">— Working professional, 30s</span>
+        </div>
+        <div class="quote-card">
+          <blockquote>"Quiet Protect sits comfortably with me. The moment I saw it I thought of my dad. He forwards me emails asking if they look dodgy. That's exactly the problem."</blockquote>
+          <span class="quote-source">— Daughter &amp; Carer, 50s</span>
+        </div>
+        <div class="quote-card">
+          <blockquote>"SaneBox still leaves you in your inbox. Quiet sits further back in the chain and makes the decisions autonomously. That's a fundamentally different thing."</blockquote>
+          <span class="quote-source">— Business owner, current SaneBox user</span>
         </div>
       </div>
 
-      <!-- QUIET PROTECT -->
-      <div class="product-card protect">
-        <span class="pill-tag">Vulnerable Adult Protection</span>
-        <h2>Quiet Protect</h2>
-        <p class="product-sub">A safe, calm inbox experience for people who need protecting, with a control centre for the family member or carer who's looking out for them.</p>
-        <p>Designed for elderly parents, people with dementia, or anyone who's become a target for scammers. Quiet Protect puts a trusted adult in control — without taking away dignity or independence.</p>
-        <div class="btn-group">
-          <a class="btn btn-primary protect-btn" href="/ui/quiet_protect_prototype.html" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            Desktop prototype (Dashboard)
-          </a>
-          <a class="btn btn-secondary" href="/ui/mobile_mocks/quiet_protect_mobile_inbox.html" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-            Mobile mockup (Inbox only)
-          </a>
-          <a class="btn btn-secondary" href="/ui/mobile_mocks/quiet_protect_mobile_dashboard.html" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-            Mobile mockup (Dashboard Only)
-          </a>
-          <a class="btn btn-secondary" href="/docs/assets/quiet_protect_concept_overview.docx" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Concept overview
-          </a>
-        </div>
-      </div>
-
+      <p style="margin-top: 20px; font-size: 0.875rem;">The form below is still open. We read everything.</p>
     </div>
 
     <!-- FEEDBACK -->
-    <div class="feedback-section">
+    <div class="feedback-section fade-up d5" id="feedback">
       <h3>Your thoughts, please.</h3>
-      <p>This takes about 3 minutes. There are no wrong answers — honest reactions are worth more to me than polite ones.</p>
+      <p>Takes about three minutes. No wrong answers. Honest reactions are worth more than polite ones.</p>
       <iframe
-        class="tally-embed" style="height:2600px;"
-        src="https://tally.so/embed/KYLgdk?alignLeft=1&hideTitle=1&transparentBackground=1"
-        title="Quiet — Feedback Form"
+        class="tally-embed"
+        data-tally-src="https://tally.so/embed/KYLgdk?alignLeft=1&hideTitle=1&transparentBackground=1"
+        style="height: 2600px;"
+        title="Quiet Feedback Form"
         loading="lazy"
         allowfullscreen>
       </iframe>
@@ -407,10 +145,10 @@
 
   <footer>
     <p>Quiet is early-stage. Your feedback genuinely shapes what comes next.</p>
-    <p style="margin-top:8px;">© 2026 Chris Falck &nbsp;·&nbsp; <a href="mailto:hello@getquiet.co.uk" style="color:var(--ink-soft);">Get in touch</a></p>
+    <p style="margin-top: 8px;">© 2026 Chris Falck &nbsp;·&nbsp; <a href="mailto:chris@getquiet.co.uk">chris@getquiet.co.uk</a></p>
   </footer>
 
-
+  <script async src="https://tally.so/widgets/embed.js"></script>
 
 </body>
 </html>

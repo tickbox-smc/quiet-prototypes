@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Quiet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Quiet<span>.</span></a>
+      <div class="nav-links">
+        <a href="/how-it-works.html">How it works</a>
+        <a href="/prototypes.html">Prototypes</a>
+        <a href="/about.html" class="active">About</a>
+        <a href="/#feedback" class="nav-cta">Share your thoughts</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header fade-up">
+    <h1 class="page-title">About Quiet</h1>
+    <p class="page-subtitle">Who built this, why, and where it's at.</p>
+  </header>
+
+  <hr class="divider" />
+
+  <main>
+
+    <!-- WHO BUILT THIS -->
+    <div class="about-section fade-up d1">
+      <h2>Who built this</h2>
+      <p>I'm Chris Falck. I've spent my career building and integrating systems at scale. Quiet is the first time I've aimed that at a problem I've been living with personally.</p>
+      <p>The first thing I built for the internet was an email auto-responder. A product that, as it turned out, became a vehicle for spam and had to be closed down. I've spent the last twenty-odd years on the other side of that problem.</p>
+      <p>The email overload problem is one I share with most of the professionals I know. The email scam problem is one I've watched affect people I love. Both felt like problems worth solving properly.</p>
+    </div>
+
+    <!-- THE ORIGIN STORY -->
+    <div class="about-section fade-up d2">
+      <h2>Where Quiet Protect came from</h2>
+
+      <p>Quiet Protect started with a question about an email.</p>
+
+      <p>My partner's father is in his eighties. He's independent, capable, and sharp enough to forward a suspicious email with a note saying "this looks a bit weird, doesn't it?" He was right. The email was a scam. Convincing logo, plausible language, the right sense of official urgency. And he'd spotted something was off, but couldn't quite be sure.</p>
+
+      <div class="origin-quote">
+        "I've just received this, it looks a bit weird."
+      </div>
+
+      <p>Knowing something felt wrong but not being certain. Having to forward an email to a family member just to check. That is exactly what Quiet Protect is designed to prevent. Not by taking away independence or making someone feel managed. By removing the doubt before it arrives. The email simply doesn't reach the inbox. The ones that do are safe.</p>
+
+      <p>The scams targeting older adults are getting better. The impersonation of government bodies, banks, and trusted services is increasingly convincing. Existing email clients offer no meaningful protection and spam filters catch bulk mail, not carefully crafted fraud. There is no product on the market that gives a family member visibility of what's reaching a vulnerable adult's inbox, while keeping that inbox private. That gap is what Quiet Protect addresses.</p>
+    </div>
+
+    <!-- WHERE QUIET CAME FROM -->
+    <div class="about-section fade-up d3">
+      <h2>Where Quiet came from</h2>
+      <p>The core Quiet product, the inbox replacement for overwhelmed professionals, is the problem I've been living with for years. Email has become the default coordination layer for work, which means it has also become the default source of interruption, anxiety, and missed things that didn't actually matter.</p>
+      <p>Every tool in this space makes the inbox better to deal with. Quiet is built on a different premise: the inbox shouldn't be something you deal with at all. The AI does the reasoning. You see what needs your attention, what's been handled, and what's been quietly suppressed. You never open your email client again.</p>
+      <p>Both products share the same philosophy: email should work quietly in the background, not occupy the foreground of your day.</p>
+    </div>
+
+    <!-- WHAT STAGE THIS IS AT -->
+    <div class="about-section fade-up d4">
+      <h2>What stage this is at</h2>
+      <p>This is a pre-commercial prototype. There are no paying users, no live accounts, no terms of service. What exists is:</p>
+
+      <div class="status-card">
+        <h3>What's built</h3>
+        <div class="status-row">
+          <span class="status-label"><span class="status-dot"></span>Complete</span>
+          <span class="status-value">Click-through prototypes: Quiet and Quiet Protect, web and mobile</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label"><span class="status-dot"></span>Complete</span>
+          <span class="status-value">Microsoft Graph API integration: live connection to M365 email</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label"><span class="status-dot"></span>Complete</span>
+          <span class="status-value">Quiet Protect scoring engine: calibrated and stable across 20 test cases</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label"><span class="status-dot amber"></span>Next</span>
+          <span class="status-value">API layer and scheduler: connecting the scoring engine to live email</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label"><span class="status-dot amber"></span>Next</span>
+          <span class="status-value">Live UI: the prototypes wired to real data</span>
+        </div>
+        <div class="status-row">
+          <span class="status-label"><span class="status-dot grey"></span>Later</span>
+          <span class="status-value">Gmail and IMAP support, attachment scanning, multi-user accounts</span>
+        </div>
+      </div>
+
+      <p style="margin-top: 20px;">The scoring engine for Quiet Protect has been through 18 iterative versions and a structured calibration process across 20 test cases covering obvious scams, genuine safe emails, boundary cases, false positive candidates, and deliberate edge cases. It produces consistent routing decisions across repeated runs. That's the part of the system that required the most rigour. And it's already done!</p>
+      <p>The remaining work is integration and deployment. That's well-understood engineering. The hard problem, making the AI reasoning reliable enough to be trusted in a safety context is already solved.</p>
+    </div>
+
+    <!-- GET IN TOUCH -->
+    <div class="contact-card fade-up d5">
+      <h3>Get in touch</h3>
+      <p>If you have thoughts, questions, or you'd like to be involved as an early tester, I'd genuinely welcome hearing from you.</p>
+      <a href="mailto:chris@getquiet.co.uk" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        chris@getquiet.co.uk
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Quiet is early-stage. Your feedback genuinely shapes what comes next.</p>
+    <p style="margin-top: 8px;">© 2026 Chris Falck &nbsp;·&nbsp; <a href="mailto:chris@getquiet.co.uk">chris@getquiet.co.uk</a></p>
+  </footer>
+
+</body>
+</html>
