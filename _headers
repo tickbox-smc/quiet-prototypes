@@ -1,2 +1,5 @@
+/assets/audio/intro.mp3
+  Content-Type: audio/mpeg
+
 /assets/audio/intro.m4a
   Content-Type: audio/mp4
