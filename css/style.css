@@ -620,8 +620,15 @@ footer a { color: var(--ink-soft); }
 
 /* ── MOBILE ── */
 @media (max-width: 600px) {
-  .nav-links a:not(.nav-cta):not(.active) {
-    display: none;
+  .nav-links {
+    gap: 12px;
+  }
+  .nav-links a:not(.nav-cta) {
+    font-size: 0.78rem;
+  }
+  .nav-links a.nav-cta {
+    padding: 6px 11px;
+    font-size: 0.78rem;
   }
   .card, .voice-section, .feedback-section,
   .hearing-section, .status-card, .contact-card { padding: 20px 18px; }
