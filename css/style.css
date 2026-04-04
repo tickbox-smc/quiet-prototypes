@@ -339,12 +339,6 @@ audio {
 }
 .tally-embed { border: none; width: 100%; border-radius: var(--radius); }
 
-@media (prefers-color-scheme: dark) {
-  .tally-embed {
-    filter: invert(1) hue-rotate(180deg);
-  }
-}
-
 /* ── HOW IT WORKS PAGE ── */
 .how-section { margin-bottom: 48px; }
 
@@ -623,6 +617,31 @@ footer a { color: var(--ink-soft); }
 .d4 { animation-delay: 0.26s; }
 .d5 { animation-delay: 0.33s; }
 .d6 { animation-delay: 0.40s; }
+
+/* ── DARK MODE ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:         #1C1C1A;
+    --surface:    #252522;
+    --ink:        #EDEAE4;
+    --ink-soft:   #9A968E;
+    --rule:       #333330;
+    --accent-lt:  #1A3D2E;
+    --protect-lt: #1A2840;
+  }
+  .nav {
+    background: rgba(28, 28, 26, 0.94);
+  }
+  .nav-links {
+    background: rgba(28, 28, 26, 0.98);
+  }
+  .quote-card {
+    background: var(--bg);
+  }
+  .card[style*="background: var(--bg)"] {
+    background: var(--surface) !important;
+  }
+}
 
 /* ── HAMBURGER BUTTON ── */
 .nav-hamburger {
