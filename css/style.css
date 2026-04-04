@@ -339,6 +339,12 @@ audio {
 }
 .tally-embed { border: none; width: 100%; border-radius: var(--radius); }
 
+@media (prefers-color-scheme: dark) {
+  .tally-embed {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
 /* ── HOW IT WORKS PAGE ── */
 .how-section { margin-bottom: 48px; }
 
