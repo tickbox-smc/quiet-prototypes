@@ -243,8 +243,8 @@ Applied to the 7x7px teal dot in the manager topbar only. Do not reuse this anim
 | Export | Purpose |
 |---|---|
 | `avatarStyle(seed)` | Deterministic `{bg, fg}` from sender email string |
-| `formatDateTime(iso)` | Absolute timestamp: "13 Apr 2026, 09:42" -- used in manager views |
-| `relativeTime(iso)` | Relative timestamp: "3h ago" -- used in protected person inbox |
+| `formatDateTime(iso)` | Absolute timestamp: "13 Apr 2026, 09:42" -- used in manager views and protected person inbox |
+| `relativeTime(iso)` | Relative timestamp: "3h ago" -- not currently used; retained for future use |
 | `humanizeSignal(signal)` | Raw signal identifier to plain English label |
 
 ---
@@ -301,7 +301,7 @@ These rules apply unconditionally. They are not toggleable and are not gated beh
 - Use `0.5px solid var(--border-subtle)` for card outlines
 - Use `--radius-lg` (12px) for cards and panels; `--radius-md` (8px) for inputs and smaller elements
 - Use `avatarStyle(seed)` for all avatar colours
-- Use `formatDateTime()` for timestamps in manager views; `relativeTime()` for protected person inbox
+- Use `formatDateTime()` for timestamps in all views (both manager and protected person inbox)
 - Use `humanizeSignal()` for all signal labels -- never render raw signal identifiers
 - Use the `ROUTING_LABEL` map for routing state display labels
 - Keep max content width at `680px` for protect-mode views
@@ -363,7 +363,7 @@ Component paths are relative to the `quiet` private repo root (`/Users/chrisfalc
 **Protected Inbox** (`ProtectedInbox`)
 `ui/src/components/protect/ProtectedInbox.jsx`
 - Persona: Protected person
-- Shows: only emails with routing = deliver; sender name, subject, relative timestamp
+- Shows: only emails with routing = deliver; sender name, subject, absolute timestamp
 - No triage data of any kind -- no routing badges, confidence badges, or override controls
 - States: loading, empty ("Your inbox is empty."), populated list
 - Auto-refreshes when manager releases an email to inbox (inboxRefreshKey increment in ProtectApp)
